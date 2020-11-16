@@ -1,22 +1,40 @@
 * {
     font-family: 'IBM Plex Sans Thai', sans-serif;
 }
+#showContent {
+    background: skyblue;
+}
 .nav_logo {
     height: 40px;
 }
 .navBottom {
     background: #27397c;
     font-size: 14px;
+    height: 45px;
 }
 .choiceSize, .choiceSize::placeholder {
     font-size: 14px;
-    color: #444;
+    color: rgb(133, 132, 132);
+}
+.choiceSize h6, .choiceSize .custom-control-label {
+    color: black;
+}
+.choiceSize b, .choiceSize .price {
+    color: #3b3b3b;
 }
 .img_store {
     width: 100%;
     height: 220px;
     background-position: center;
     object-fit: cover;
+}
+.facitiyIcon {
+    width: 25px;
+    height: 25px;
+    padding: 2px;
+    background-position: center;
+    border: 2px solid rgb(108, 191, 95);
+    border-radius: 50%;
 }
 /* #page_left {
     display: none;
@@ -39,7 +57,6 @@
         display: block;
     }
 }
-
  @media only screen and (min-width: 801px){
     .nav_logo_desktop {
        display: block;
@@ -54,11 +71,11 @@
         display: none;
     }
     #topNav {
-        padding-left: 13%;
-        padding-right: 13%;
+        padding-left: 10%;
+        padding-right: 10%;
     }
     #bottomNav {
-        padding-left: 13%;
-        padding-right: 13%;
+        padding-left: 9%;
+        padding-right: 9%;
     }
  }

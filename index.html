@@ -48,20 +48,20 @@
         <nav class="navbar navbar-dark text-light navBottom">
             <div class="container-fluid" id="bottomNav">
                 <p class="my-auto">
-                    <u class="mr-2">หน้าแรก</u> / <b class="ml-2">ค้นหา</b>
+                    <a href="https://search-merchant.xn--42caj4e6bk1f5b1j.com/" style="text-decoration: none; color: white"><u class="mr-2">หน้าแรก</u></a> / <b class="ml-2">ค้นหา</b>
                 </p>
             </div>
         </nav>
     </div>
-    <div class="container-fluid">
-        <div class="row mt-2 mb-4 p-3">
+    <div class="container-fluid" id="showContent">
+        <div class="row mb-4 px-3 py-4">
             <h5 id="TitlePage"><b>ผลการค้นหา ร้านอาหารและเครื่องดื่ม ทั้งหมด</b></h5>
         </div>
         <div class="row mt-4">
-            <div class="col-md-3 col-12" id="page_left">
-                <div class="card p-3 border-dark">
+            <div class="col-md-3 col-12 mb-4" id="page_left">
+                <div class="card p-3 border-secondary">
                     <div class="form-group">
-                        <h6><b>ประเภทร้านค้า</b></h6>
+                        <h6 class="mb-4"><b>ประเภทร้านค้า</b></h6>
                         <section id="categories" onchange="subCategory()" class="choiceSize"></section>
                     </div>
                     <div class="form-group">
@@ -82,7 +82,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <h6><b>ประเภทร้านอาหารและเครื่องดื่ม</b></h6>
+                        <h6 class="mb-4"><b>ประเภทร้านอาหารและเครื่องดื่ม</b></h6>
                         <section id="subCategories" onchange="fliterContent()" class="choiceSize">
                             <div class="custom-control custom-radio">
                                 <input type="radio" class="custom-control-input" id="ทั้งหมด" value="ทั้งหมด" name="subCategory" checked>
@@ -94,9 +94,7 @@
             </div>
             <div class="col-md-9 col-12" id="page_right">
                 <div id="allContent"></div>
-                <div id="moreBTN" class="row d-flex align-item-center justify-content-center my-4">
-                    <button class="btn btn-light border w-50 py-2 my-4">ดูเพิ่มเติม</button>
-                </div>
+                <div id="moreBTN" class="row d-flex align-item-center justify-content-center my-4"></div>
             </div>
         </div>
     </div>
