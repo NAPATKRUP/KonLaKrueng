@@ -1,0 +1,16 @@
+.nav_logo {
+    height: 40px;
+}
+.navBottom {
+    background: #27397c;
+    font-size: 14px;
+}
+.choiceSize, .choiceSize::placeholder {
+    font-size: 14px;
+    color: #444
+}
+.img_store {
+    width: 100%;
+    height: 220px;
+    background-position: center;
+}
