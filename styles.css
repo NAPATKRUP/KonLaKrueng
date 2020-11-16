@@ -1,3 +1,6 @@
+* {
+    font-family: 'IBM Plex Sans Thai', sans-serif;
+}
 .nav_logo {
     height: 40px;
 }
@@ -7,10 +10,51 @@
 }
 .choiceSize, .choiceSize::placeholder {
     font-size: 14px;
-    color: #444
+    color: #444;
 }
 .img_store {
     width: 100%;
     height: 220px;
     background-position: center;
+    object-fit: cover;
 }
+/* #page_left {
+    display: none;
+} */
+
+@media only screen and (max-width: 750px){
+    .nav_logo_desktop {
+       display: none;
+    }
+    .nav_logo_mobile {
+        display: block;
+    }
+    #nav_dropdown_menu_desktop {
+        display: none;
+    }
+    #serachBox {
+        border-radius: 5%;
+    }
+    #fliterBTN {
+        display: block;
+    }
+}
+
+ @media only screen and (min-width: 750px){
+    .nav_logo_desktop {
+       display: block;
+    }
+    .nav_logo_mobile {
+        display: none;
+    }
+    #nav_dropdown_menu_desktop {
+        display: block;
+    }
+    #fliterBTN {
+        display: none;
+    }
+    #topNav {
+        padding-left: 13%;
+        padding-right: 13%;
+    }
+ }

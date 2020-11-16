@@ -53,22 +53,22 @@ function contentGenerator(data) {
     let txt = "";
     data.forEach(function(d) {
         let listRecommend = d.recommendedItems.join(", ");
-        txt += `<div class="card p-2 my-2 py-2 border-info">
+        txt += `<div class="card p-2 mb-2 py-2 border-info">
                     <div class="row">
-                        <div class="col-3">
+                        <div class="col-md-3 col-12">
                             <img src="${d.coverImageId}" class="img_store">
                         </div>
-                        <div class="col-9 choiceSize">
+                        <div class="col-md-9 col-12 pt-2 choiceSize">
                             <h6><b>${d.shopNameTH}</b>`
         if(d.isOpen == "Y") {
-            txt += `<span class="ml-4 badge badge-success">เปิดอยู่</span>`
+            txt += `<span class="ml-3 badge badge-success">เปิดอยู่</span>`
         } else if(d.isOpen == "N") {
-            txt += `<span class="ml-4 badge badge-secondary">ปิดอยู่</span>`
+            txt += `<span class="ml-3 badge badge-secondary">ปิดแล้ว</span>`
         }
         txt += `</h6><p>${d.subcategoryName} | ฿฿฿฿ | ${d.addressDistrictName} ${d.addressProvinceName}</p>
                             <hr class="w-100">
                             <p>${d.highlightText}</p>
-                            <p><b>เมนูแนะนำ</b> ${listRecommend}</p>
+                            <p><b>เมนูแนะนำ: </b> ${listRecommend}</p>
                         </div>
                     </div>
                 </div>`;
