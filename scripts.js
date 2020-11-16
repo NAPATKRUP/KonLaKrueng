@@ -1,11 +1,13 @@
+var data;
 var xmlhttp = new XMLHttpRequest();
+
 xmlhttp.onreadystatechange = function() {
   if (this.readyState == 4 && this.status == 200) {
-    var data = JSON.parse(this.responseText);
+    data = JSON.parse(this.responseText);
     categoriesName(data.categories)
     provinceName(data.provinces)
     priceRange(data.priceRange)
-    contentGenerator(data.merchants)
+    contentGenerator(data.merchants, "ทั้งหมด")
   }
 };
 xmlhttp.open("GET", "ywc18.json", true);
@@ -13,12 +15,12 @@ xmlhttp.send();
 
 function categoriesName(data) {
     let txt = `<div class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" id="ทั้งหมด" value="ทั้งหมด" name="category" checked>
+                    <input type="radio" class="custom-control-input" id="ทั้งหมด" value="ทั้งหมด" name="type" checked>
                     <label class="custom-control-label" for="ทั้งหมด">ทั้งหมด</label>
                 </div>`;
     data.forEach(function(d) {
         txt += `<div class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" id="${d.name}" value="${d.name}" name="category">
+                    <input type="radio" class="custom-control-input" id="${d.name}" value="${d.name}" name="type">
                     <label class="custom-control-label" for="${d.name}">${d.name}</label>
                 </div>`;
     });
@@ -49,29 +51,82 @@ function priceRange(data) {
     document.getElementById("priceRange").innerHTML = txt;
 }
 
-function contentGenerator(data) {
+function contentGenerator(data, keyword) {
+    let titleCheck = $('input[name="type"]:checked').val();
+    if(titleCheck != "ทั้งหมด") document.getElementById("TitlePage").innerHTML = `<b>ผลการค้นหา ${titleCheck} ทั้งหมด</b>`;
+    else document.getElementById("TitlePage").innerHTML = `<b>ผลการค้นหา ทั้งหมด</b>`;
+
     let txt = "";
     data.forEach(function(d) {
-        let listRecommend = d.recommendedItems.join(", ");
-        txt += `<div class="card p-2 mb-2 py-2 border-info">
-                    <div class="row">
-                        <div class="col-md-3 col-12">
-                            <img src="${d.coverImageId}" class="img_store">
+        if(d.subcategoryName == keyword || keyword == "ทั้งหมด" || keyword.includes(d.subcategoryName)) {
+            let listRecommend = d.recommendedItems.join(", ");
+            txt += `<div class="card p-2 mb-2 py-2 border-info">
+                        <div class="row">
+                            <div class="col-md-3 col-12">
+                                <img src="${d.coverImageId}" class="img_store">
+                            </div>
+                            <div class="col-md-9 col-12 pt-2 choiceSize">
+                                <h6><b>${d.shopNameTH}</b>`
+            if(d.isOpen == "Y") {
+                txt += `<span class="ml-3 badge badge-success">เปิดอยู่</span>`
+            } else if(d.isOpen == "N") {
+                txt += `<span class="ml-3 badge badge-secondary">ปิดแล้ว</span>`
+            }
+            txt += `</h6><p>${d.subcategoryName} | ฿฿฿฿ | ${d.addressDistrictName} ${d.addressProvinceName}</p>
+                                <hr class="w-100">
+                                <p>${d.highlightText}</p>
+                                <p><b>เมนูแนะนำ: </b> ${listRecommend}</p>
+                            </div>
                         </div>
-                        <div class="col-md-9 col-12 pt-2 choiceSize">
-                            <h6><b>${d.shopNameTH}</b>`
-        if(d.isOpen == "Y") {
-            txt += `<span class="ml-3 badge badge-success">เปิดอยู่</span>`
-        } else if(d.isOpen == "N") {
-            txt += `<span class="ml-3 badge badge-secondary">ปิดแล้ว</span>`
+                    </div>`;
         }
-        txt += `</h6><p>${d.subcategoryName} | ฿฿฿฿ | ${d.addressDistrictName} ${d.addressProvinceName}</p>
-                            <hr class="w-100">
-                            <p>${d.highlightText}</p>
-                            <p><b>เมนูแนะนำ: </b> ${listRecommend}</p>
-                        </div>
-                    </div>
-                </div>`;
     });
     document.getElementById("allContent").innerHTML = txt;
+
+    if(document.getElementById("allContent").childNodes.length != 0) {
+        document.getElementById("moreBTN").innerHTML = '<button class="btn btn-light border w-50 py-2 my-4">ดูเพิ่มเติม</button>';
+    } else {
+        document.getElementById("moreBTN").innerHTML = '';
+    }
+}
+
+function subCategory() {
+    let listOfSubcategories = "";
+    let txt = `<div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="รวมทั้งหมด" value="ทั้งหมด" name="category" checked>
+                    <label class="custom-control-label" for="รวมทั้งหมด">ทั้งหมด</label>
+                </div>`;
+    let keyword = $('input[name="type"]:checked').val();
+    data.categories.forEach(function(t) {
+        if(t.name == keyword) {
+            listOfSubcategories = t.subcategories;
+            t.subcategories.forEach(function(s) {
+                txt += `<div class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" id="${s}" value="${s}" name="category">
+                            <label class="custom-control-label" for="${s}">${s}</label>
+                        </div>`;
+            });
+        }
+    });
+    document.getElementById("subCategories").innerHTML = txt;
+    if(listOfSubcategories) contentGenerator(data.merchants, listOfSubcategories);
+    else contentGenerator(data.merchants, "ทั้งหมด");
+}
+
+function fliterContent() {
+    let keyword = $('input[name="category"]:checked').val();
+    if(keyword != "ทั้งหมด") {
+        contentGenerator(data.merchants, keyword);
+    }
+    else {
+        let listOfSubcategories = "";
+        keyword = $('input[name="type"]:checked').val();
+        data.categories.forEach(function(t) {
+            if(t.name == keyword) {
+                listOfSubcategories = t.subcategories;
+            }
+        });
+        if(listOfSubcategories) contentGenerator(data.merchants, listOfSubcategories);
+        else contentGenerator(data.merchants, "ทั้งหมด");
+    }
 }
