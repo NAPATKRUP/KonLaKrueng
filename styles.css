@@ -1,9 +1,6 @@
 * {
     font-family: 'IBM Plex Sans Thai', sans-serif;
 }
-#showContent {
-    background: skyblue;
-}
 .nav_logo {
     height: 40px;
 }
@@ -36,10 +33,20 @@
     border: 2px solid rgb(108, 191, 95);
     border-radius: 50%;
 }
-/* #page_left {
-    display: none;
-} */
+#showContent {
+    /* background: rgb(155, 195, 211); */
+    background: linear-gradient(white, skyblue);
+}
+#page_left .card {
+    border: 1.5px solid #7a93b6;
+    border-radius: 5px;
+}
+#page_right .card {
+    border: 1.5px solid #e2e8f0;
+    border-radius: 5px;
+}
 
+/* Responsive */
 @media only screen and (max-width: 800px){
     .nav_logo_desktop {
        display: none;

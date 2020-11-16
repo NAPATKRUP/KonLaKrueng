@@ -1,3 +1,4 @@
+// JSON Loader
 var data;
 var xmlhttp = new XMLHttpRequest();
 
@@ -13,6 +14,7 @@ xmlhttp.onreadystatechange = function() {
 xmlhttp.open("GET", "ywc18.json", true);
 xmlhttp.send();
 
+// More Function
 function categoriesName(data) {
     let txt = `<div class="custom-control custom-radio">
                     <input type="radio" class="custom-control-input" id="ทั้งหมด" value="ทั้งหมด" name="type" checked>
@@ -62,7 +64,7 @@ function contentGenerator(data, keyword) {
             let listRecommend = d.recommendedItems.join(", ");
             let priceActivelevel = '฿'.repeat(d.priceLevel);
             let priceInActivelevel = '฿'.repeat(4-d.priceLevel);
-            txt += `<div class="card p-2 mb-2 py-2 border-info">
+            txt += `<div class="card p-2 mb-2 py-2">
                         <div class="row">
                             <div class="col-md-3 col-12">
                                 <img src="${d.coverImageId}" class="img_store">
