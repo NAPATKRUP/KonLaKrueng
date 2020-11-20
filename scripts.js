@@ -141,7 +141,7 @@ function fliterContent() {
 
 // Window Screen
 window.onload = function() {
-    if ($(window).width() <= 800) {
+    if ($(window).width() <= 766) {
         document.getElementById("page_left").classList.remove('show');
     } else {
         document.getElementById("page_left").classList.add('show');
@@ -149,7 +149,7 @@ window.onload = function() {
 }
 
 window.onresize = function() {
-    if ($(window).width() <= 800) {
+    if ($(window).width() <= 766) {
         document.getElementById("page_left").classList.remove('show');
     } else {
         document.getElementById("page_left").classList.add('show');
