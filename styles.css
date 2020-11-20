@@ -66,12 +66,6 @@
     background: #2a4365;
     color: white;
 }
-select {
-    font-family: 'FontAwesome', 'sans-serif';
-}
-.fa option {
-    font-weight: 900;
-}
 
 /* Responsive */
 @media only screen and (max-width: 764px){
