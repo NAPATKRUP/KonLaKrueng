@@ -30,12 +30,8 @@ function categoriesName(data) {
 }
 
 function provinceName(data) {
-    let txt = `<option selected>
-                    <img src="./assets/pinMap.png" />พื้นที่ใกล้ฉัน
-                </option>
-                <option>
-                    <img src="./assets/pinMap.png" />สถานที่ทั้งหมด
-                </option>`;
+    let txt = `<option selected>พื้นที่ใกล้ฉัน</option>
+                <option> สถานที่ทั้งหมด</option>`;
     data.forEach(function(d) {
         txt += `<option>${d}</option>`;
     });
