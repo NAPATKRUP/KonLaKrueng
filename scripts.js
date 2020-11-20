@@ -138,3 +138,20 @@ function fliterContent() {
         else contentGenerator(data.merchants, "ทั้งหมด");
     }
 }
+
+// Window Screen
+window.onload = function() {
+    if ($(window).width() <= 800) {
+        document.getElementById("page_left").classList.remove('show');
+    } else {
+        document.getElementById("page_left").classList.add('show');
+    }
+}
+
+window.onresize = function() {
+    if ($(window).width() <= 800) {
+        document.getElementById("page_left").classList.remove('show');
+    } else {
+        document.getElementById("page_left").classList.add('show');
+    }
+}
