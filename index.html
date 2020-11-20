@@ -61,19 +61,28 @@
                         <h6 class="mb-4"><b>ประเภทร้านค้า</b></h6>
                         <section id="categories" onchange="subCategory()" class="choiceSize"></section>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mt-4">
                         <h6><b>จังหวัด/ใกล้ฉัน</b></h6>
                         <div class="dropdown show my-auto">
                             <select class="w-100 p-2 border border-secondary rounded choiceSize text-dark" id="provinces"></select>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mt-4" id="ifNotAll">
                         <h6><b>ราคา</b></h6>
                         <div class="dropdown show">
                             <select class="w-100 p-2 border border-secondary rounded choiceSize text-dark" id="priceRange"></select>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mt-4" id="ifAll">
+                        <h6><b>ช่วงราคาสินค้า (บาท)</b></h6>
+                        <p class="row m-auto d-flex justify-content-around">
+                            <input type="number" placeholder="ราคาต่ำสุด" class="choiceSize p-1 m-0" style="width: 45%">
+                            <span class="px-2 my-auto text-center" style="width: 10%">-</span>
+                            <input type="number" placeholder="ราคาสูงสุด" class="choiceSize p-1 m-0" style="width: 45%;">
+                        </p>
+                        <button class="border border-primary text-primary text-sm bg-white w-100 p-1 mt-2">ตกลง</button>
+                    </div>
+                    <div class="form-group mt-4">
                         <h6 class="mb-4"><b>ประเภทร้านอาหารและเครื่องดื่ม</b></h6>
                         <section id="subCategories" onchange="fliterContent()" class="choiceSize">
                             <div class="custom-control custom-radio">

@@ -30,11 +30,11 @@ function categoriesName(data) {
 }
 
 function provinceName(data) {
-    let txt = `<option>
-                    พื้นที่ใกล้ฉัน
+    let txt = `<option selected>
+                    <img src="./assets/pinMap.png" />พื้นที่ใกล้ฉัน
                 </option>
                 <option>
-                    สถานที่ทั้งหมด
+                    <img src="./assets/pinMap.png" />สถานที่ทั้งหมด
                 </option>`;
     data.forEach(function(d) {
         txt += `<option>${d}</option>`;
@@ -44,7 +44,7 @@ function provinceName(data) {
 }
 
 function priceRange(data) {
-    let txt = `<option>ทั้งหมด</option>`;
+    let txt = `<option selected>ทั้งหมด</option>`;
     data.forEach(function(d) {
         txt += `<option>${d}</option>`;
     });
@@ -115,8 +115,16 @@ function subCategory() {
         }
     });
     document.getElementById("subCategories").innerHTML = txt;
-    if(listOfSubcategories) contentGenerator(data.merchants, listOfSubcategories);
-    else contentGenerator(data.merchants, "ทั้งหมด");
+    if(listOfSubcategories) {
+        contentGenerator(data.merchants, listOfSubcategories);
+        document.getElementById("ifAll").style.display = "none";
+        document.getElementById("ifNotAll").style.display = "block";
+    }
+    else {
+        contentGenerator(data.merchants, "ทั้งหมด");
+        document.getElementById("ifAll").style.display = "block";
+        document.getElementById("ifNotAll").style.display = "none";
+    }
 }
 
 function fliterContent() {

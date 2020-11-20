@@ -59,6 +59,9 @@
     border-radius: 5px;
     background: none;
 }
+#ifNotAll {
+    display: none;
+}
 #page_right .card {
     border: 1.5px solid #e2e8f0;
     border-radius: 5px;
