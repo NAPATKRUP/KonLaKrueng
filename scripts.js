@@ -67,7 +67,7 @@ function contentGenerator(data, keyword) {
                             <div class="col-md-3 col-12">
                                 <img src="${d.coverImageId}" class="img_store">
                             </div>
-                            <div class="col-md-9 col-12 pt-2 choiceSize">
+                            <div class="col-md-7 col-12 pt-2 choiceSize">
                                 <h6><b>${d.shopNameTH}</b>`;
             if(d.isOpen == "Y") {
                 txt += `        <span class="ml-3 badge badge-success">เปิดอยู่</span>`;

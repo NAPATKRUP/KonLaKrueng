@@ -52,6 +52,7 @@
     background-image: url("./assets/bg.PNG");
     background-repeat: no-repeat;
     background-attachment: fixed;
+    background-size: cover;
 }
 #page_left .card {
     border: 1.5px solid #7a93b6;
