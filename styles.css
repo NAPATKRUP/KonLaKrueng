@@ -70,9 +70,6 @@
     background: #2a4365;
     color: white;
 }
-.form-control:focus {
-    border-color: skyblue;
-}
 @font-face {
     font-family: 'fontello';
     src: url('./font/fontello.eot?10929753');
@@ -85,6 +82,8 @@
 }
 .left-icon {
     font-family: "fontello";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 /* Responsive */
