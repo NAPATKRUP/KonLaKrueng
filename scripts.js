@@ -1,18 +1,32 @@
 // JSON Loader
 var data;
-var xmlhttp = new XMLHttpRequest();
 
-xmlhttp.onreadystatechange = function() {
-  if (this.readyState == 4 && this.status == 200) {
-    data = JSON.parse(this.responseText);
-    categoriesName(data.categories);
-    provinceName(data.provinces);
-    priceRange(data.priceRange);
-    contentGenerator(data.merchants, "ทั้งหมด");
-  }
-};
-xmlhttp.open("GET", "./data/ywc18.json", true);
-xmlhttp.send();
+// var xmlhttp = new XMLHttpRequest();
+
+// xmlhttp.onreadystatechange = function() {
+//   if (this.readyState == 4 && this.status == 200) {
+//     data = JSON.parse(this.responseText);
+//     categoriesName(data.categories);
+//     provinceName(data.provinces);
+//     priceRange(data.priceRange);
+//     contentGenerator(data.merchants, "ทั้งหมด");
+//   }
+// };
+// xmlhttp.open("GET", "./data/ywc18.json", true);
+// xmlhttp.send();
+
+// Axios
+axios.get('https://panjs.com/ywc18.json')
+    .then(function (response) {
+        data = response.data;
+        categoriesName(data.categories);
+        provinceName(data.provinces);
+        priceRange(data.priceRange);
+        contentGenerator(data.merchants, "ทั้งหมด");
+    })
+    .catch(function (error) {
+        console.log(error);
+    })
 
 // More Function
 function categoriesName(data) {
