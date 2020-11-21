@@ -72,7 +72,19 @@
 }
 .form-control:focus {
     border-color: skyblue;
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px orangered;
+}
+@font-face {
+    font-family: 'fontello';
+    src: url('./font/fontello.eot?10929753');
+    src: url('./font/fontello.eot?10929753#iefix') format('embedded-opentype'),
+         url('./font/fontello.woff?10929753') format('woff'),
+         url('./font/fontello.ttf?10929753') format('truetype'),
+         url('./font/fontello.svg?10929753#fontello') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+.left-icon {
+    font-family: "fontello";
 }
 
 /* Responsive */

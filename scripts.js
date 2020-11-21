@@ -11,7 +11,7 @@ xmlhttp.onreadystatechange = function() {
     contentGenerator(data.merchants, "ทั้งหมด");
   }
 };
-xmlhttp.open("GET", "ywc18.json", true);
+xmlhttp.open("GET", "./data/ywc18.json", true);
 xmlhttp.send();
 
 // More Function
@@ -30,8 +30,9 @@ function categoriesName(data) {
 }
 
 function provinceName(data) {
-    let txt = `<option selected>พื้นที่ใกล้ฉัน</option>
-                <option> สถานที่ทั้งหมด</option>`;
+    let txt = `<option selected class="left-icon">&#xe801;&nbsp; &nbsp;พื้นที่ใกล้ฉัน</option>
+                <option class="left-icon">&#xe800;&nbsp; &nbsp;สถานที่ทั้งหมด</option>`;
+    
     data.forEach(function(d) {
         txt += `<option>${d}</option>`;
     });
